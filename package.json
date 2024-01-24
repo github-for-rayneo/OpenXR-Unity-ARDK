@@ -1,0 +1,22 @@
+﻿{
+  "author": "RayNeo",
+  "name": "com.unity.xr.rayneo.openxr",
+  "displayName": "RayNeo OpenXR ARDK",
+  "description": "RayNeo OpenXR AR SDK",
+  "version": "1.0.0",
+  "unity": "2020.3",
+  "license": "OpenXR RAYNEO",
+  "dependencies": {
+    "com.unity.inputsystem": "1.3.0",
+    "com.unity.xr.management": "4.2.1",
+    "com.unity.xr.openxr": "1.7.0",
+    "com.unity.xr.core-utils":"2.2.3"
+  },
+  "samples": [
+    {
+      "displayName": "Hello RayNeo",
+      "description": "Basic sample, minimal project setup.",
+      "path": "Samples~/HelloRayNeo"
+    }
+  ]
+}

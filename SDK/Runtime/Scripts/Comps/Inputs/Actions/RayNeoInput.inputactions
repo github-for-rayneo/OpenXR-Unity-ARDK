@@ -1,0 +1,254 @@
+{
+    "name": "RayNeoInput",
+    "maps": [
+        {
+            "name": "SimpleTouch",
+            "id": "3ee82658-13e9-43a1-b803-5c00561e5f49",
+            "actions": [
+                {
+                    "name": "Tap",
+                    "type": "Button",
+                    "id": "f65f1bc0-5c7c-4d25-ae46-f4ead2976053",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "Tap",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Position",
+                    "type": "PassThrough",
+                    "id": "7d789459-0fa4-4d1e-b14d-6a2885d3252a",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Press",
+                    "type": "PassThrough",
+                    "id": "46cc4698-f59d-4059-bb8e-9c201ad1ffae",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "29130e4c-b31c-4a56-b73a-096bbf7c1465",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Tap",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "a4fb838e-cafc-48b5-a432-40ac4e7124cd",
+                    "path": "<Touchscreen>/Press",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Tap",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "4537a551-5f67-4c59-9af4-39f5e22c4d32",
+                    "path": "<Mouse>/position",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Position",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "0a3cfdba-4b0a-46fe-8ae9-8af1ee59d297",
+                    "path": "<Touchscreen>/position",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Position",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "786c51c8-605f-48d5-b9d7-cf09f1a41335",
+                    "path": "<Mouse>/press",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Press",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "72efd082-c0a5-4374-b7dd-8f51c71c2cd3",
+                    "path": "<Touchscreen>/Press",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Press",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        },
+        {
+            "name": "Ring",
+            "id": "982be9de-2fc3-4ab5-868b-3e53b23ec25b",
+            "actions": [
+                {
+                    "name": "XRPose",
+                    "type": "PassThrough",
+                    "id": "33cefc00-2bd8-42c4-8414-5be7577e6822",
+                    "expectedControlType": "Pose",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "TouchPadClick",
+                    "type": "Button",
+                    "id": "a82eefa0-23f6-4b3c-831d-36615c5f673c",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "HeavyClick",
+                    "type": "Button",
+                    "id": "26ede634-498a-4303-8dbe-764200305db4",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Rotation",
+                    "type": "PassThrough",
+                    "id": "6d4e4618-1ba6-4cde-958a-2be467a89265",
+                    "expectedControlType": "Quaternion",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Position",
+                    "type": "PassThrough",
+                    "id": "75c5dd53-87a8-4afd-883f-102a8d83b423",
+                    "expectedControlType": "Vector3",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "89321d41-b63a-47a8-b787-a665f09e5785",
+                    "path": "<RayNeoRingController>/devicePose",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "XRPose",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "74d8e7b8-419c-46dc-b6d1-7dcf9ac5386a",
+                    "path": "<RingInputDevice>/button_touch",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "TouchPadClick",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "817dae67-749c-4909-9f49-d61b1b565677",
+                    "path": "<RingInputDevice>/button_heavy",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "HeavyClick",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "b0bc7fbf-75a0-4244-9fb8-ac89f17a727e",
+                    "path": "<RayNeoRingController>/homeButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "HeavyClick",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "e29aad5e-5708-4e16-8329-1999fed88b28",
+                    "path": "<RingInputDevice>/devicePose",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Rotation",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "82ad01de-e7ce-4a55-869c-2ed650c19c01",
+                    "path": "<RingInputDevice>/touchPosition",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Position",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        },
+        {
+            "name": "CellPhone",
+            "id": "c19b0352-7d2b-403d-ab29-7bbfdcfc782e",
+            "actions": [
+                {
+                    "name": "Pose",
+                    "type": "PassThrough",
+                    "id": "b148c107-5c45-444b-a1df-d9e3506ec2ef",
+                    "expectedControlType": "Pose",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "504a76bb-c72a-4156-8723-909fe8312086",
+                    "path": "<RayNeoCellPhoneController>/devicePose",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Pose",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}

@@ -1,0 +1,58 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Water
+  m_Shader: {fileID: 4800000, guid: d508dca7e3d077243868c11b71cc72e2, type: 3}
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: 2000
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _ReflectionTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _UnderWater:
+        m_Texture: {fileID: 2800000, guid: 3187606e765bc90488a539bddc5c1f7a, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _WaterNormal:
+        m_Texture: {fileID: 2800000, guid: 43e4e07b82800b44e84a070a96e5ff2f, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _reflectionTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _Depth: 1.4
+    - _Float0: 1
+    - _FresnelOffset: 0.2
+    - _Ks: 1.07
+    - _NormalIntensity: 3.34
+    - _NormalTiling: 10
+    - _SecondarySpeed: 0.67
+    - _SecondaryTiling: 2.31
+    - _SpecEnd: 97.35
+    - _SpecSmoothness: 0.472
+    - _SpecStart: 0
+    - _Speed: 1.2
+    - _UnderWaterlTiling: 15
+    - _WaterNoise: 0.3
+    - __dirty: 0
+    m_Colors:
+    - _SpecTint: {r: 1, g: 0.9386792, b: 0.9912399, a: 0}
+  m_BuildTextureStacks: []

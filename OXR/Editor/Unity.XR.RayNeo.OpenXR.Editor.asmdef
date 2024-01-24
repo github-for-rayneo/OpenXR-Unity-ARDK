@@ -1,0 +1,19 @@
+{
+    "name": "Unity.XR.RayNeo.OpenXR.Editor",
+    "rootNamespace": "",
+    "references": [
+        "Unity.XR.OpenXR.Editor",
+        "Unity.XR.RayNeo.OpenXR"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
