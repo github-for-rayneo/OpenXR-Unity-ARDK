@@ -1,0 +1,9 @@
+﻿{
+  "author": "RayNeo",
+  "name": "com.unity.xr.rayneo.recorder",
+  "displayName": "RayNeo Recorder",
+  "description": "RayNeo Recorder",
+  "version": "1.0.0",
+  "unity": "2020.3",
+  "license": "RAYNEO"
+}

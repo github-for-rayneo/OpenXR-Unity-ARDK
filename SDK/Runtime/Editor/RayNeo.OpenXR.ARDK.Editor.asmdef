@@ -1,0 +1,20 @@
+{
+    "name": "RayNeoXREditor",
+    "rootNamespace": "",
+    "references": [
+        "GUID:f98e67abced6d0942a27fe2594eed6d9",
+        "GUID:ba171b3dd2a51234ab864770f99741a5",
+        "GUID:75469ad4d38634e559750d17036d5f7c"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [
+        "Android"
+    ],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
