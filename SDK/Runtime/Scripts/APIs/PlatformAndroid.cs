@@ -109,6 +109,18 @@ namespace RayNeo.API
             return JavaHelper.CallStatic<float>("getGlobalCpuTemperature");
         }
 
+        //load openxr library result
+        public static LibLoadResult GetLibLoadResult()
+        {
+#if UNITY_EDITOR
+            return LibLoadResult.Error;
+#else
+  return (LibLoadResult)CurActivity.Call<int>("GetLibLoadResult");
+#endif
+
+
+        }
+
         /// <summary>
         /// 系统监控信息开启的枚举
         /// </summary>
@@ -136,6 +148,13 @@ namespace RayNeo.API
 
             //当前顶层应用CPU使用
             public const long CUR_TOP_USAGE = 1 << 6;
+        }
+
+        public enum LibLoadResult
+        {
+            Suc = 0,
+            Error = 99
+
         }
     }
 }

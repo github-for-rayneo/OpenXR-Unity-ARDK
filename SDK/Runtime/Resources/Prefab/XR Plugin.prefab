@@ -210,7 +210,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Priority: 0
   m_LaserTrans: {fileID: 7233033737023380058}
-  m_OriOffset: {x: 0, y: 0, z: 0}
+  m_OriOffset: {x: 0, y: -0.3, z: 0}
 --- !u!114 &139782922
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -284,6 +284,11 @@ MonoBehaviour:
     m_SingletonActionBindings: []
     m_Flags: 0
   m_HasMigratedActions: 1
+  CenterCamera: {fileID: 0}
+  RGBEyePose:
+    position: {x: 0, y: 0, z: 0}
+    rotation: {x: 0, y: 0, z: 0, w: 0}
+  m_Origin: {fileID: 1467274598}
 --- !u!1 &7233033737023379876
 GameObject:
   m_ObjectHideFlags: 0
@@ -589,6 +594,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8983171046854280205}
   - component: {fileID: 1467274598}
+  - component: {fileID: 901338992}
   m_Layer: 0
   m_Name: XR Plugin
   m_TagString: Untagged
@@ -630,3 +636,20 @@ MonoBehaviour:
   m_CameraFloorOffsetObject: {fileID: 920026352}
   m_RequestedTrackingOriginMode: 1
   m_CameraYOffset: 0
+--- !u!114 &901338992
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8340958969312374639}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d23ac4237e90dd4b92cdb153d75aeec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_LoadLibErrorTips:
+  - type: 99
+    text: "server\u52A0\u8F7D\u51FA\u9519,\u8BF7\u66F4\u65B0sdk!"
+    color: {r: 0, g: 0, b: 0, a: 0}
+  m_ErrorPrefab: {fileID: 2431684044621666763, guid: d4c4a4a763f311c47b9bbb6a30540845, type: 3}

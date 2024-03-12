@@ -39,17 +39,9 @@ namespace Rayneo
 
         //private RayNeoXRGeneralSettings m_settings;
         private Texture m_Logo;
-        public RayNeoSettingsProvider(IEnumerable<string> keywords = null) : base("Project/RayNeo", SettingsScope.Project, keywords)
-        {
 
-            m_ItemTitleStyle.fontStyle = FontStyle.Bold;
-            m_ItemTitleStyle.fontSize = 16;
-            m_ItemTitleStyle.normal.textColor = Color.white;
-            m_GuiItems = new Dictionary<int, RayNeoProjectSettingGUIBase>();
-            m_GuiItems.Add(0, new BaseSettingGUI());
-            m_GuiItems.Add(1, new SimpleTouchSettingGUI());
-            m_GuiItems.Add(2, new SimulatorGUI());
-            m_GuiItems.Add(3, new ExtensionGUI());
+        public static void CreateGeneralSettings()
+        {
             if (RayNeoXRGeneralSettings.Instance == null)
             {
                 RayNeoXRGeneralSettings[] settings = Resources.FindObjectsOfTypeAll<RayNeoXRGeneralSettings>();
@@ -65,8 +57,21 @@ namespace Rayneo
             }
             if (RayNeoXRGeneralSettings.Instance == null)
             {
-                CreateNewSettingsAsset("Assets/XR/RayNeoGeneralSettings.asset");
+                CreateNewSettingsAsset(GeneralSettings);
             }
+        }
+        public RayNeoSettingsProvider(IEnumerable<string> keywords = null) : base("Project/RayNeo", SettingsScope.Project, keywords)
+        {
+
+            m_ItemTitleStyle.fontStyle = FontStyle.Bold;
+            m_ItemTitleStyle.fontSize = 16;
+            m_ItemTitleStyle.normal.textColor = Color.white;
+            m_GuiItems = new Dictionary<int, RayNeoProjectSettingGUIBase>();
+            m_GuiItems.Add(0, new BaseSettingGUI());
+            m_GuiItems.Add(1, new SimpleTouchSettingGUI());
+            m_GuiItems.Add(2, new SimulatorGUI());
+            m_GuiItems.Add(3, new ExtensionGUI());
+
 
             m_Logo = AssetDatabase.LoadAssetAtPath<Texture>("Assets/Runtime/Editor/Textures/LOGO.png");
             ConfigPreloadInfo();
@@ -93,7 +98,7 @@ namespace Rayneo
         private void ONGUI(string serachContext)
         {
 
-    
+
             //GUILayout.BeginVertical("frameBox");
             //EditorGUILayout.BeginFoldoutHeaderGroup(foldout, "打包SDK配置");
             //GUILayout.BeginArea(new Rect(0, 30, 100, 200));
@@ -118,7 +123,7 @@ namespace Rayneo
         }
 
         //总不能连设置都不点开吧....
-        private void CreateNewSettingsAsset(string relativePath)
+        private static void CreateNewSettingsAsset(string relativePath)
         {
             var settings = ScriptableObject.CreateInstance<RayNeoXRGeneralSettings>();
             settings.CreateDefaultData();

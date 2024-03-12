@@ -12,10 +12,7 @@ namespace RayNeo.API
     public class Algorithm
     {
 
-        private const int width = 640;
-        private const int height = 480;
 
-        private byte[] m_CameraCpuImage = new byte[(int)(width * height * 1.5f)];
         /// <summary>
         /// 打开slam
         /// </summary>
@@ -89,31 +86,6 @@ namespace RayNeo.API
 
         }
 
-        public void OpenShareCamera()
-        {
-#if UNITY_EDITOR
-#else
-
-             XRInterfaces.RayneoApi_OpenCamera();
-
-#endif
-        }
-
-        public void CloseShareCamera()
-        {
-#if UNITY_EDITOR
-#else
-             XRInterfaces.RayNeoApi_CloseCamera();
-#endif
-        }
-        public void GetCameraColors(Action<int, int, Color32> call)
-        {
-#if UNITY_EDITOR
-#else
-            XRInterfaces.RayneoApi_GetLatestFrame(m_CameraCpuImage,width,height);
-            YUV420SP_RGB(m_CameraCpuImage, width, height, call);
-#endif
-        }
         /// <summary>
         /// 获取当前平面检测结果.创建XRPlaneInfo并维护.
         /// </summary>
@@ -244,8 +216,8 @@ namespace RayNeo.API
 
         private static Matrix4x4 PerspectiveOffCenter(float fx, float fy, float cx, float cy, float skew, float near, float far)
         {
-            float width = 640f;
-            float height = 480f;
+            float width = ShareCamera.CameraWidth;
+            float height = ShareCamera.CameraHeight;
             float x = 2.0f * fx / width;
             float y = 2.0f * fy / height;
             float a = (-2f * cx + width) / width;
@@ -295,38 +267,6 @@ namespace RayNeo.API
 #endif
 
             return new Quaternion(rot.x, rot.y, rot.z, rot.w);
-        }
-
-        public static void YUV420SP_RGB(byte[] yuvs, int w, int h, Action<int, int, Color32> call)
-        {
-            int chromaOffset = w * h;
-            for (int y = 0; y < h; y++)
-            {
-                for (int x = 0; x < w; x++)
-                {
-                    int Y = yuvs[y * w + x];
-                    int V = yuvs[chromaOffset + (y / 2) * w + 2 * (x / 2)];
-                    int U = yuvs[chromaOffset + (y / 2) * w + 2 * (x / 2) + 1];
-
-                    int C = Y - 16;
-                    int D = U - 128;
-                    int E = V - 128;
-
-                    int R = (298 * C + 409 * E + 128) >> 8;
-                    int G = (298 * C - 100 * D - 208 * E + 128) >> 8;
-                    int B = (298 * C + 516 * D + 128) >> 8;
-
-                    R = Math.Min(255, Math.Max(0, R));
-                    G = Math.Min(255, Math.Max(0, G));
-                    B = Math.Min(255, Math.Max(0, B));
-                    call(x, y, new Color32((byte)R, (byte)G, (byte)B, 1));
-                    //int offset = y * bmpStride + x * 3;
-                    //Marshal.WriteByte(bmpPtr + offset, (byte)B);
-                    //Marshal.WriteByte(bmpPtr + offset + 1, (byte)G);
-                    //Marshal.WriteByte(bmpPtr + offset + 2, (byte)R);
-                }
-            }
-
         }
     }
 

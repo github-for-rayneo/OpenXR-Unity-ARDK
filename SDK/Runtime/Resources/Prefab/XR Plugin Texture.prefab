@@ -566,10 +566,18 @@ MonoBehaviour:
       m_Name: Position Input
       m_Type: 0
       m_ExpectedControlType: 
-      m_Id: 54c25e58-9402-4a1f-adb8-806a9c45f04e
+      m_Id: 261685c4-1835-4937-bc8a-76bcb7d3afc7
       m_Processors: 
       m_Interactions: 
-      m_SingletonActionBindings: []
+      m_SingletonActionBindings:
+      - m_Name: 
+        m_Id: 16924539-fc71-4c20-8ed5-1b03850dc742
+        m_Path: <XRHMD>/centerEyePosition
+        m_Interactions: 
+        m_Processors: 
+        m_Groups: 
+        m_Action: Position Input
+        m_Flags: 0
       m_Flags: 0
     m_Reference: {fileID: 0}
   m_RotationInput:
@@ -578,10 +586,18 @@ MonoBehaviour:
       m_Name: Rotation Input
       m_Type: 0
       m_ExpectedControlType: 
-      m_Id: ef27b71b-c923-4e08-8e90-b06a7a841dff
+      m_Id: fc32b79f-fb22-411e-90eb-fe0011c45c2c
       m_Processors: 
       m_Interactions: 
-      m_SingletonActionBindings: []
+      m_SingletonActionBindings:
+      - m_Name: 
+        m_Id: 79e25c16-8eaf-46a5-9bdd-d18c3fc7816d
+        m_Path: <XRHMD>/centerEyeRotation
+        m_Interactions: 
+        m_Processors: 
+        m_Groups: 
+        m_Action: Rotation Input
+        m_Flags: 0
       m_Flags: 0
     m_Reference: {fileID: 0}
   m_PositionAction:
@@ -603,6 +619,11 @@ MonoBehaviour:
     m_SingletonActionBindings: []
     m_Flags: 0
   m_HasMigratedActions: 1
+  CenterCamera: {fileID: 0}
+  RGBEyePose:
+    position: {x: 0, y: 0, z: 0}
+    rotation: {x: 0, y: 0, z: 0, w: 0}
+  m_Origin: {fileID: 0}
 --- !u!114 &8371516885169555504
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -56,6 +56,7 @@ namespace RayNeo
         private bool m_Inited = false;
         public RayNeoXRGeneralSettings()
         {
+            Debug.Log("RayNeo SDK RayNeoXRGeneralSettings Inited");
             s_RuntimeSettingsInstance = this;
         }
 
@@ -187,6 +188,7 @@ namespace RayNeo
         //public int TargetFrameRate = 60;
 
         public int SleepTimeOut = SleepTimeout.NeverSleep;
+        public bool ErrorWindow = true;
     }
     [Serializable]
     public class DeviceInfo
