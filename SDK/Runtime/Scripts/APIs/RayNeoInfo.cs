@@ -71,6 +71,11 @@ namespace RayNeo.API
             return (PlatformType)XRInterfaces.HostType();
         }
 
+        public static Vector4 GetPhysicalCameraParams()
+        {
+            return new Vector4(376.686f, 376.1188f, 319.3743f, 241.355f);
+        }
+
         private const int BB_START = 0x0020;//start
         private const int BB_END = 0x00FF;//end
         private const int X_START = 0x1000;//start

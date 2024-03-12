@@ -38,6 +38,7 @@ namespace Rayneo
             bcfg.LogLevel = (LogLevel)EditorGUILayout.EnumPopup("Log Level", bcfg.LogLevel);
 
             bcfg.SleepTimeOut = EditorGUILayout.IntSlider(new GUIContent("Sleep Time Out", "-1 for SleepTimeout.NeverSleep"), bcfg.SleepTimeOut, -1, 6000);
+            bcfg.ErrorWindow = EditorGUILayout.ToggleLeft("Error Window", bcfg.ErrorWindow);
             EditorGUILayout.EndVertical();
         }
 

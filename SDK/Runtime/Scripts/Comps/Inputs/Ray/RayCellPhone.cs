@@ -15,7 +15,7 @@ namespace RayNeo
 
         public override void Update()
         {
-            Debug.LogError("YYYYYYYYYYYYYYYYYYYYYYYY:"+ m_Input.CellPhone.Pose.ReadValue<Pose>().rotation);
+            //Debug.LogError("YYYYYYYYYYYYYYYYYYYYYYYY:"+ m_Input.CellPhone.Pose.ReadValue<Pose>().rotation);
             transform.rotation = m_Input.CellPhone.Pose.ReadValue<Pose>().rotation;
         }
     }

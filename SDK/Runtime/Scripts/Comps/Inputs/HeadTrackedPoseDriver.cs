@@ -1,6 +1,7 @@
 using RayNeo.API;
 using System;
 using System.Collections.Generic;
+using Unity.XR.CoreUtils;
 using UnityEngine;
 using UnityEngine.InputSystem.XR;
 
@@ -12,10 +13,16 @@ namespace RayNeo
     {
         private static HeadTrackedPoseParams m_params = new HeadTrackedPoseParams();
 
+        public Camera CenterCamera;
         ///// <summary>
         ///// 使用眼镜上的相机为姿态.
         ///// </summary>
         //public bool m_useActualCameraAttitude = false;
+        public Pose RGBEyePose;
+        public static event Action<Pose> OnPostUpdate;
+        public XROrigin m_Origin;
+
+        public GameObject Origin => m_Origin.gameObject;
 
         public static void ResetQuaternion()
         {
@@ -24,6 +31,9 @@ namespace RayNeo
 
         override protected void Awake()
         {
+            CenterCamera = GetComponent<Camera>();
+            RGBEyePose = new Pose();
+
             m_params.AwakeDriver(this, ResetTrackedPos);
             base.Awake();
         }
@@ -36,8 +46,11 @@ namespace RayNeo
 
         protected override void SetLocalTransform(Vector3 newPosition, Quaternion newRotation)
         {
-            base.SetLocalTransform(newPosition, m_params.GetRotation(newRotation));
-
+            var rot = m_params.GetRotation(newRotation);
+            base.SetLocalTransform(newPosition, rot);
+            RGBEyePose.position = newPosition;
+            RGBEyePose.rotation = rot;
+            OnPostUpdate?.Invoke(RGBEyePose);
         }
         //public Vector3 ActualCameraPositionOffset()
         //{
