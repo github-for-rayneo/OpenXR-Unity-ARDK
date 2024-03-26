@@ -197,6 +197,19 @@ namespace com.rayneo.xr.extensions
         private static extern int RayNeoApi_GetProp(string item, [In, Out] IntPtr value, ref int len);
 
 
+        #region sharecamera
+        [DllImport(XRConstants.XRInterfaces)]
+        public static extern void RayneoApi_OpenCamera();
+
+        [DllImport(XRConstants.XRInterfaces)]
+
+        public static extern void RayNeoApi_CloseCamera();
+
+        [DllImport(XRConstants.XRInterfaces)]
+
+        public static extern void RayneoApi_GetLatestFrame(byte[] data, int w, int h);
+        #endregion
+
     }
 
 
