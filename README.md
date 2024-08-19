@@ -1,1 +1,1 @@
-OpenXR Unity ARDK
+OpenXR Unity ARDK.
