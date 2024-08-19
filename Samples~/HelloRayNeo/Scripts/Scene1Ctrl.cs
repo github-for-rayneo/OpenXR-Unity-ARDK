@@ -1,6 +1,7 @@
 using RayNeo;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class Scene1Ctrl : MonoBehaviour
 {
@@ -13,6 +14,7 @@ public class Scene1Ctrl : MonoBehaviour
     public LatticeButton m_deleteLevel1Btn;
     public LatticeButton m_deleteLevel2Btn;
     public LatticeButton m_backBtn;
+    public Image OnTripleTapButtonImage;
 
 
     public void OnDoubleTapCallBack()
@@ -30,6 +32,13 @@ public class Scene1Ctrl : MonoBehaviour
         m_deleteLevel1Btn.onClick.AddListener(DeleteLevel1);
         m_deleteLevel2Btn.onClick.AddListener(DeleteLevel2);
         m_backBtn.onClick.AddListener(BackToMainScene);
+
+        SimpleTouch.Instance.OnTripleTap.AddListener(OnTripleTapButtonImageRandomColor);
+    }
+
+    private void OnTripleTapButtonImageRandomColor()
+    {
+        OnTripleTapButtonImage.color = new Color(Random.Range(0,1.0f), Random.Range(0, 1.0f), Random.Range(0, 1.0f));
     }
 
     private void BackToMainScene()
@@ -65,5 +74,10 @@ public class Scene1Ctrl : MonoBehaviour
     void Update()
     {
 
+    }
+
+    private void OnDestroy()
+    {
+        SimpleTouch.Instance.OnTripleTap.RemoveListener(OnTripleTapButtonImageRandomColor);
     }
 }

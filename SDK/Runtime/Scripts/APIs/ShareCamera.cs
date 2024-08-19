@@ -14,12 +14,13 @@ namespace RayNeo.API
         private static byte[] m_CameraCpuImage = new byte[(int)(CameraWidth * CameraHeight * 1.5f)];
         private static bool m_ShareCameraOpenState = false;
         public bool ShareCameraOpened => m_ShareCameraOpenState;
-        public int YUVSize => m_CameraCpuImage.Length;
-        //private IEnumerator _UpdateFrame()
+        public static int YUVSize => m_CameraCpuImage.Length;
+        //private IEnumerator _UpdateFrame(Action cameraRefreshCall)
         //{
-        //    while (enabled)
+        //    while (m_ShareCameraOpenState)
         //    {
-        //        yield return new WaitForSeconds(1000 / CameraFrames);
+        //        cameraRefreshCall?.Invoke();
+        //        yield return new WaitForSeconds(1 / CameraFrames);
 
         //    }
         //}

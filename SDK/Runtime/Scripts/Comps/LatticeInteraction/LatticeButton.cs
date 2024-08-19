@@ -16,8 +16,11 @@ namespace RayNeo
         //数字越大约靠后
         public int order = 1;
 
-        public Action OnFocus;
-        public Action OnUnFocus;
+
+        public Action<LatticeButton> OnFocus;
+        public Action<LatticeButton> OnUnFocus;
+
+        public object Params;
 
         public ButtonClickedEvent onClick { get; set; }
 
@@ -44,7 +47,7 @@ namespace RayNeo
 
         public void MonoFocus()
         {
-            OnFocus?.Invoke();
+            OnFocus?.Invoke(this);
             if (m_focusObj != null)
             {
                 m_focusObj.SetActive(true);
@@ -53,7 +56,7 @@ namespace RayNeo
 
         public void MonoUnFocus()
         {
-            OnUnFocus?.Invoke();
+            OnUnFocus?.Invoke(this);
             if (m_focusObj != null)
             {
                 m_focusObj.SetActive(false);

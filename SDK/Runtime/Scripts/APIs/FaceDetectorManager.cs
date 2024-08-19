@@ -18,7 +18,7 @@ namespace RayNeo
 
         float[] m_position = new float[3];
         Vector3 m_posVec3 = Vector3.zero;
-        private long m_faceHandle = 0;
+        private long m_faceHandle = -1;
 #endif
 
         /// <summary>
@@ -33,19 +33,18 @@ namespace RayNeo
 #if UNITY_EDITOR
             //编辑器不执行. 后续可以考虑加入debug
             suc = false;
+
             return Vector3.zero;
 #else
-            if (m_faceHandle == 0)
+            if (m_faceHandle == -1)
             {
-                m_faceHandle = XRFaceDetector.CreateFaceDetector();
-                if (m_faceHandle != 0)
-                {
-                    XRFaceDetector.InitFaceDetector();
-                }
+                m_faceHandle = XRFaceDetector.CheckFaceState();
+                Debug.Log("[MercuryX2]GetFacialData Demo PHandle:" + m_faceHandle);
+                XRFaceDetector.CreateFaceDetector();
             }
-            if (m_faceHandle != 0)
+            if (XRFaceDetector.CheckFaceState() == 1)
             {
-                XRFaceDetector.GetFaceInCamera(m_position);
+                XRFaceDetector.GetFacePosition(m_position);
                 if (m_position[0] == 0 && m_position[1] == 0 && m_position[2] == 0)
                 {
                     suc = false;
@@ -53,7 +52,7 @@ namespace RayNeo
                 }
                 m_posVec3.Set(m_position[0], m_position[1], m_position[2]);
             }
-            else
+            else if(XRFaceDetector.CheckFaceState() == 0)
             {
                 suc = false;
                 return Vector3.zero;
@@ -63,15 +62,21 @@ namespace RayNeo
 #endif
 
         }
-
+        public void StartFaceDectector()
+        {
+#if UNITY_EDITOR
+            return;
+#else
+            XRFaceDetector.CreateFaceDetector();
+#endif
+        }
         public void StopFaceDectector()
         {
 #if UNITY_EDITOR
             return;
 #else
-
             XRFaceDetector.DestroyFaceDetector();
-            m_faceHandle = 0;
+            m_faceHandle = -1;
 #endif
         }
 

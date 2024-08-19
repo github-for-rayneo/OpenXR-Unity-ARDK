@@ -62,7 +62,7 @@ Material:
     - _Cutoff: 0.5
     - _DetailNormalMapScale: 1
     - _Distance: 434
-    - _DistanceInMeters: 1025.4131
+    - _DistanceInMeters: 1006.2257
     - _DstBlend: 0
     - _GlossMapScale: 1
     - _Glossiness: 0.5
@@ -74,7 +74,7 @@ Material:
     - _OuterDiameter: 9.646174
     - _Parallax: 0.02
     - _Progress: 343
-    - _ScaleValue: 17.896866
+    - _ScaleValue: 17.791527
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
     - _SrcBlend: 1

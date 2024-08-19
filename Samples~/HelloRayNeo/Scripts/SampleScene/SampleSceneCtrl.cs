@@ -21,7 +21,12 @@ public class SampleSceneCtrl : MonoBehaviour
 
     public void CloseApp()
     {
-        Application.Quit();
+#if UNITY_EDITOR
+        UnityEditor.EditorApplication.isPlaying = false;
+
+#else
+                Application.Quit();
+#endif
     }
 
     public void OpenBatteryInfo()

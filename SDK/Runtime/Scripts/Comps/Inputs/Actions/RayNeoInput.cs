@@ -125,6 +125,167 @@ public partial class @RayNeoInput : IInputActionCollection2, IDisposable
             ]
         },
         {
+            ""name"": ""MulitTouch"",
+            ""id"": ""af95e208-2af8-4d85-9f62-874579f250d7"",
+            ""actions"": [
+                {
+                    ""name"": ""Touch1Tap"",
+                    ""type"": ""Button"",
+                    ""id"": ""06fa4ec7-69ab-4248-abb6-7ca41bdb441a"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": ""Tap"",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Touch2Tap"",
+                    ""type"": ""Button"",
+                    ""id"": ""3b56ea4f-927c-441e-ae4b-824df2788a26"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": ""Tap"",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Touch1Position"",
+                    ""type"": ""Value"",
+                    ""id"": ""db7d0187-b036-4b42-9dd7-ab618a1a13e5"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Touch2Position"",
+                    ""type"": ""Value"",
+                    ""id"": ""69a93738-7988-492d-aee3-813513fad189"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Touch1Press"",
+                    ""type"": ""Button"",
+                    ""id"": ""86fdf3ae-2b73-4451-a0ea-e44a759115ba"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Touch2Press"",
+                    ""type"": ""Button"",
+                    ""id"": ""4d7cf9a9-1987-4413-a5c6-79b55c4d5490"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""ce37cee0-3fee-470f-b68f-d2f57535eb05"",
+                    ""path"": ""<Mouse>/leftButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Touch1Tap"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""442e3399-790f-46f1-84c3-c15509b47cac"",
+                    ""path"": ""<Touchscreen>/touch0/tap"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Touch1Tap"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""93482bb4-5a0b-4985-8585-6182befe3153"",
+                    ""path"": ""<Mouse>/position"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Touch1Position"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""b5ba651c-40ca-44ba-ab7c-45b223c7446d"",
+                    ""path"": ""<Touchscreen>/touch0/position"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Touch1Position"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""9212e8c4-1c08-4fff-95c1-7ac30d0c6293"",
+                    ""path"": ""<Mouse>/press"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Touch1Press"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""97b6e302-70fc-4668-b9af-51803c1edf9f"",
+                    ""path"": ""<Touchscreen>/touch0/press"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Touch1Press"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""5cd560f7-775b-4703-ac97-0b65d23a6299"",
+                    ""path"": ""<Touchscreen>/touch1/position"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Touch2Position"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""62ec8d1b-5b63-4a5e-9a99-dfea4cebd831"",
+                    ""path"": ""<Touchscreen>/touch1/press"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Touch2Press"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""09eaf8e1-7e83-452a-b443-04ebd8cc997f"",
+                    ""path"": ""<Touchscreen>/touch1/tap"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Touch2Tap"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
+        },
+        {
             ""name"": ""Ring"",
             ""id"": ""982be9de-2fc3-4ab5-868b-3e53b23ec25b"",
             ""actions"": [
@@ -279,6 +440,14 @@ public partial class @RayNeoInput : IInputActionCollection2, IDisposable
         m_SimpleTouch_Tap = m_SimpleTouch.FindAction("Tap", throwIfNotFound: true);
         m_SimpleTouch_Position = m_SimpleTouch.FindAction("Position", throwIfNotFound: true);
         m_SimpleTouch_Press = m_SimpleTouch.FindAction("Press", throwIfNotFound: true);
+        // MulitTouch
+        m_MulitTouch = asset.FindActionMap("MulitTouch", throwIfNotFound: true);
+        m_MulitTouch_Touch1Tap = m_MulitTouch.FindAction("Touch1Tap", throwIfNotFound: true);
+        m_MulitTouch_Touch2Tap = m_MulitTouch.FindAction("Touch2Tap", throwIfNotFound: true);
+        m_MulitTouch_Touch1Position = m_MulitTouch.FindAction("Touch1Position", throwIfNotFound: true);
+        m_MulitTouch_Touch2Position = m_MulitTouch.FindAction("Touch2Position", throwIfNotFound: true);
+        m_MulitTouch_Touch1Press = m_MulitTouch.FindAction("Touch1Press", throwIfNotFound: true);
+        m_MulitTouch_Touch2Press = m_MulitTouch.FindAction("Touch2Press", throwIfNotFound: true);
         // Ring
         m_Ring = asset.FindActionMap("Ring", throwIfNotFound: true);
         m_Ring_XRPose = m_Ring.FindAction("XRPose", throwIfNotFound: true);
@@ -394,6 +563,79 @@ public partial class @RayNeoInput : IInputActionCollection2, IDisposable
     }
     public SimpleTouchActions @SimpleTouch => new SimpleTouchActions(this);
 
+    // MulitTouch
+    private readonly InputActionMap m_MulitTouch;
+    private IMulitTouchActions m_MulitTouchActionsCallbackInterface;
+    private readonly InputAction m_MulitTouch_Touch1Tap;
+    private readonly InputAction m_MulitTouch_Touch2Tap;
+    private readonly InputAction m_MulitTouch_Touch1Position;
+    private readonly InputAction m_MulitTouch_Touch2Position;
+    private readonly InputAction m_MulitTouch_Touch1Press;
+    private readonly InputAction m_MulitTouch_Touch2Press;
+    public struct MulitTouchActions
+    {
+        private @RayNeoInput m_Wrapper;
+        public MulitTouchActions(@RayNeoInput wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Touch1Tap => m_Wrapper.m_MulitTouch_Touch1Tap;
+        public InputAction @Touch2Tap => m_Wrapper.m_MulitTouch_Touch2Tap;
+        public InputAction @Touch1Position => m_Wrapper.m_MulitTouch_Touch1Position;
+        public InputAction @Touch2Position => m_Wrapper.m_MulitTouch_Touch2Position;
+        public InputAction @Touch1Press => m_Wrapper.m_MulitTouch_Touch1Press;
+        public InputAction @Touch2Press => m_Wrapper.m_MulitTouch_Touch2Press;
+        public InputActionMap Get() { return m_Wrapper.m_MulitTouch; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(MulitTouchActions set) { return set.Get(); }
+        public void SetCallbacks(IMulitTouchActions instance)
+        {
+            if (m_Wrapper.m_MulitTouchActionsCallbackInterface != null)
+            {
+                @Touch1Tap.started -= m_Wrapper.m_MulitTouchActionsCallbackInterface.OnTouch1Tap;
+                @Touch1Tap.performed -= m_Wrapper.m_MulitTouchActionsCallbackInterface.OnTouch1Tap;
+                @Touch1Tap.canceled -= m_Wrapper.m_MulitTouchActionsCallbackInterface.OnTouch1Tap;
+                @Touch2Tap.started -= m_Wrapper.m_MulitTouchActionsCallbackInterface.OnTouch2Tap;
+                @Touch2Tap.performed -= m_Wrapper.m_MulitTouchActionsCallbackInterface.OnTouch2Tap;
+                @Touch2Tap.canceled -= m_Wrapper.m_MulitTouchActionsCallbackInterface.OnTouch2Tap;
+                @Touch1Position.started -= m_Wrapper.m_MulitTouchActionsCallbackInterface.OnTouch1Position;
+                @Touch1Position.performed -= m_Wrapper.m_MulitTouchActionsCallbackInterface.OnTouch1Position;
+                @Touch1Position.canceled -= m_Wrapper.m_MulitTouchActionsCallbackInterface.OnTouch1Position;
+                @Touch2Position.started -= m_Wrapper.m_MulitTouchActionsCallbackInterface.OnTouch2Position;
+                @Touch2Position.performed -= m_Wrapper.m_MulitTouchActionsCallbackInterface.OnTouch2Position;
+                @Touch2Position.canceled -= m_Wrapper.m_MulitTouchActionsCallbackInterface.OnTouch2Position;
+                @Touch1Press.started -= m_Wrapper.m_MulitTouchActionsCallbackInterface.OnTouch1Press;
+                @Touch1Press.performed -= m_Wrapper.m_MulitTouchActionsCallbackInterface.OnTouch1Press;
+                @Touch1Press.canceled -= m_Wrapper.m_MulitTouchActionsCallbackInterface.OnTouch1Press;
+                @Touch2Press.started -= m_Wrapper.m_MulitTouchActionsCallbackInterface.OnTouch2Press;
+                @Touch2Press.performed -= m_Wrapper.m_MulitTouchActionsCallbackInterface.OnTouch2Press;
+                @Touch2Press.canceled -= m_Wrapper.m_MulitTouchActionsCallbackInterface.OnTouch2Press;
+            }
+            m_Wrapper.m_MulitTouchActionsCallbackInterface = instance;
+            if (instance != null)
+            {
+                @Touch1Tap.started += instance.OnTouch1Tap;
+                @Touch1Tap.performed += instance.OnTouch1Tap;
+                @Touch1Tap.canceled += instance.OnTouch1Tap;
+                @Touch2Tap.started += instance.OnTouch2Tap;
+                @Touch2Tap.performed += instance.OnTouch2Tap;
+                @Touch2Tap.canceled += instance.OnTouch2Tap;
+                @Touch1Position.started += instance.OnTouch1Position;
+                @Touch1Position.performed += instance.OnTouch1Position;
+                @Touch1Position.canceled += instance.OnTouch1Position;
+                @Touch2Position.started += instance.OnTouch2Position;
+                @Touch2Position.performed += instance.OnTouch2Position;
+                @Touch2Position.canceled += instance.OnTouch2Position;
+                @Touch1Press.started += instance.OnTouch1Press;
+                @Touch1Press.performed += instance.OnTouch1Press;
+                @Touch1Press.canceled += instance.OnTouch1Press;
+                @Touch2Press.started += instance.OnTouch2Press;
+                @Touch2Press.performed += instance.OnTouch2Press;
+                @Touch2Press.canceled += instance.OnTouch2Press;
+            }
+        }
+    }
+    public MulitTouchActions @MulitTouch => new MulitTouchActions(this);
+
     // Ring
     private readonly InputActionMap m_Ring;
     private IRingActions m_RingActionsCallbackInterface;
@@ -496,6 +738,15 @@ public partial class @RayNeoInput : IInputActionCollection2, IDisposable
         void OnTap(InputAction.CallbackContext context);
         void OnPosition(InputAction.CallbackContext context);
         void OnPress(InputAction.CallbackContext context);
+    }
+    public interface IMulitTouchActions
+    {
+        void OnTouch1Tap(InputAction.CallbackContext context);
+        void OnTouch2Tap(InputAction.CallbackContext context);
+        void OnTouch1Position(InputAction.CallbackContext context);
+        void OnTouch2Position(InputAction.CallbackContext context);
+        void OnTouch1Press(InputAction.CallbackContext context);
+        void OnTouch2Press(InputAction.CallbackContext context);
     }
     public interface IRingActions
     {
