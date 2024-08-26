@@ -29,7 +29,7 @@ namespace Unity.XR.RayNeo.OpenXR.ARDK
 
 
         public bool OpenSLAMOnStart = false;
-        public bool ATWSupport = false;
+        public bool ATWSupport = true;
 
         // Called after xrCreateInstance
         protected override bool OnInstanceCreate(ulong xrInstanceHandle)
