@@ -210,7 +210,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Priority: 0
   m_LaserTrans: {fileID: 7233033737023380058}
-  m_OriOffset: {x: 0, y: 0, z: 0}
+  m_OriOffset: {x: 0, y: -0.3, z: 0}
 --- !u!114 &139782922
 MonoBehaviour:
   m_ObjectHideFlags: 0

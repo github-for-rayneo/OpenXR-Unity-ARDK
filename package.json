@@ -3,7 +3,7 @@
   "name": "com.unity.xr.rayneo.openxr",
   "displayName": "RayNeo OpenXR ARDK",
   "description": "RayNeo OpenXR AR SDK",
-  "version": "1.0.3",
+  "version": "1.0.1-r2",
   "unity": "2020.3",
   "license": "OpenXR RAYNEO",
   "dependencies": {

@@ -1,5 +1,6 @@
 using com.rayneo.xr.extensions;
 using System;
+using System.Collections;
 using UnityEngine;
 namespace RayNeo.API
 {
@@ -13,47 +14,48 @@ namespace RayNeo.API
         private static byte[] m_CameraCpuImage = new byte[(int)(CameraWidth * CameraHeight * 1.5f)];
         private static bool m_ShareCameraOpenState = false;
         public bool ShareCameraOpened => m_ShareCameraOpenState;
-        public static int YUVSize => m_CameraCpuImage.Length;
-        //private IEnumerator _UpdateFrame(Action cameraRefreshCall)
+        public int YUVSize => m_CameraCpuImage.Length;
+        //private IEnumerator _UpdateFrame()
         //{
-        //    while (m_ShareCameraOpenState)
+        //    while (enabled)
         //    {
-        //        cameraRefreshCall?.Invoke();
-        //        yield return new WaitForSeconds(1 / CameraFrames);
+        //        yield return new WaitForSeconds(1000 / CameraFrames);
 
         //    }
         //}
-//        public static void Open()
-//        {
-//            m_ShareCameraOpenState = true;
-//#if UNITY_EDITOR
-//#else
+        public static void Open()
+        {
+            m_ShareCameraOpenState = true;
+            XRInterfaces.RayneoApi_OpenCamera();
+#if UNITY_EDITOR
+#else
 
-//             XRInterfaces.RayneoApi_OpenCamera();
-//#endif
-//        }
+            
+#endif
+        }
 
-//        public static void Close()
-//        {
-//#if UNITY_EDITOR
-//#else
-//             XRInterfaces.RayNeoApi_CloseCamera();
-//#endif
-//            m_ShareCameraOpenState = false;
-//        }
-//        public static byte[] GetYUVFrame()
-//        {
-//            XRInterfaces.RayneoApi_GetLatestFrame(m_CameraCpuImage, CameraWidth, CameraHeight);
-//            return m_CameraCpuImage;
-//        }
-//        public static void GetCameraColors(Action<int, int, Color32> call)
-//        {
-//#if UNITY_EDITOR
-//#else
-//            GetYUVFrame();
-//            YUV420SP_RGB(m_CameraCpuImage, CameraWidth, CameraHeight, call);
-//#endif
-//        }
+        public static void Close()
+        {
+
+#if UNITY_EDITOR
+#else
+                     XRInterfaces.RayNeoApi_CloseCamera();
+#endif
+            m_ShareCameraOpenState = false;
+        }
+        public static byte[] GetYUVFrame()
+        {
+            XRInterfaces.RayneoApi_GetLatestFrame(m_CameraCpuImage, CameraWidth, CameraHeight);
+            return m_CameraCpuImage;
+        }
+        public static void GetCameraColors(Action<int, int, Color32> call)
+        {
+#if UNITY_EDITOR
+#else
+                    GetYUVFrame();
+                    YUV420SP_RGB(m_CameraCpuImage, CameraWidth, CameraHeight, call);
+#endif
+        }
 
 
         public static void YUV420SP_RGB(byte[] yuvs, int w, int h, Action<int, int, Color32> call)

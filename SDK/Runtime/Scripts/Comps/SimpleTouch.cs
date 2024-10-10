@@ -12,10 +12,6 @@ namespace RayNeo
     public class SimpleTouch : MonoSingleton<SimpleTouch>
     {
 
-        /// <summary>
-        /// TAG
-        /// </summary>
-        const string TAG = "[SimpleTouch] ";
 
         RayNeoInput m_Action;
 
@@ -68,14 +64,6 @@ namespace RayNeo
         private OnPosEvent m_OnSwipeRightEnd = new OnPosEvent();
         public OnPosEvent OnSwipeRightEnd { get => m_OnSwipeRightEnd; }
 
-        [SerializeField]
-        private OnPosEvent m_OnSwipeUpEnd = new OnPosEvent();
-        public OnPosEvent OnSwipeUpEnd { get => m_OnSwipeUpEnd; }
-
-        [SerializeField]
-        private OnPosEvent m_OnSwipeDownEnd = new OnPosEvent();
-        public OnPosEvent OnSwipeDownEnd { get => m_OnSwipeDownEnd; }
-
         private long m_LastTapPerformedTime = 0;
         private int m_PerformedTapCounts = 0;
         private bool m_BeginClickCheck = false;
@@ -87,10 +75,11 @@ namespace RayNeo
         //如果处于滑动期间,第一次设置手势时的坐标点.
         private Vector2 m_OnSwipeStartPos = Vector2.zero;
 
+        private const int m_SwipeSwitchThreahold = 20;
+
 
         private SwipeActionType m_swipeType = SwipeActionType.NONE;
 
-        //private bool m_
         private void OnEnable()
         {
             if (m_CustomConfig)
@@ -106,7 +95,6 @@ namespace RayNeo
             //只监听单击.
             m_Action.SimpleTouch.Tap.performed += TapPerformed;
             m_Action.SimpleTouch.Tap.started += TapStarted;
-            //m_Action.SimpleTouch.Tap.canceled += TapCancel;
 
             //只监听位置
             m_Action.SimpleTouch.Position.performed += PositionPerformed;
@@ -126,6 +114,7 @@ namespace RayNeo
             }
             else
             {
+
                 if (m_InSwipe && Vector2.Distance(m_OnSwipeStartPos, pos) > m_TouchConfig.SwipeEndThreshold)
                 {
                     //是滑动.并且滑动数值大于设定阈值. 才执行end
@@ -134,22 +123,11 @@ namespace RayNeo
                     {
                         OnSwipeLeftEnd?.Invoke(pos);
                     }
-                    else if(m_swipeType == SwipeActionType.RIGHT)
+                    else if (m_swipeType == SwipeActionType.RIGHT)
                     {
                         OnSwipeRightEnd?.Invoke(pos);
 
                     }
-                    else if (m_swipeType == SwipeActionType.UP)
-                    {
-                        OnSwipeUpEnd?.Invoke(pos);
-                        Debug.Log(TAG + "PressPerformed() m_swipeType = SwipeActionType.UP   OnSwipeUpEnd?.Invoke(pos);");
-                    }
-                    else if (m_swipeType == SwipeActionType.DOWN)
-                    {
-                        OnSwipeDownEnd?.Invoke(pos);
-                        Debug.Log(TAG + "PressPerformed() m_swipeType = SwipeActionType.DOWN  OnSwipeDownEnd?.Invoke(pos);");
-                    }
-
                 }
 
                 m_swipeType = SwipeActionType.NONE;
@@ -193,57 +171,50 @@ namespace RayNeo
             FireTap();
         }
 
+        private Vector2 m_LastSwipeDirectionPos;
         private void SwipeDirectionCheck(Vector2 pos)
         {
-            float upDownLenght = Math.Abs(pos.y- m_FingerMovePosition.y);
-            float leftRightLenght = Math.Abs(pos.x- m_FingerMovePosition.x);
-            if (leftRightLenght >= upDownLenght)
+
+            if (pos.x > m_FingerMovePosition.x)
             {
-                if (pos.x > m_FingerMovePosition.x)
+                if (m_swipeType == SwipeActionType.LEFT)
                 {
-                    if (m_swipeType != SwipeActionType.RIGHT)
+                    if (Mathf.Abs(m_LastSwipeDirectionPos.x - pos.x) < m_SwipeSwitchThreahold)
                     {
-                        m_OnSwipeStartPos = pos;
+                        return;//lock
                     }
-                    m_swipeType = SwipeActionType.RIGHT;
                 }
-                else
-                {
 
-                    if (m_swipeType != SwipeActionType.LEFT)
-                    {
-                        m_OnSwipeStartPos = pos;
-                    }
-                    m_swipeType = SwipeActionType.LEFT;
-                    //OnSwipeLeft?.Invoke(pos);
+                if (m_swipeType != SwipeActionType.RIGHT)
+                {
+                    m_OnSwipeStartPos = pos;
                 }
+                m_swipeType = SwipeActionType.RIGHT;
+                m_LastSwipeDirectionPos = pos;
+
+
             }
-            else {
-                if (pos.y > m_FingerMovePosition.y)
+            else
+            {
+                if (m_swipeType == SwipeActionType.RIGHT)
                 {
-                    if (m_swipeType != SwipeActionType.UP)
+                    if (Mathf.Abs(m_LastSwipeDirectionPos.x - pos.x) < m_SwipeSwitchThreahold)
                     {
-                        m_OnSwipeStartPos = pos;
+                        return;//lock
                     }
-                    m_swipeType = SwipeActionType.UP;
-
                 }
-                else
+                if (m_swipeType != SwipeActionType.LEFT)
                 {
-
-                    if (m_swipeType != SwipeActionType.DOWN)
-                    {
-                        m_OnSwipeStartPos = pos;
-                    }
-                    m_swipeType = SwipeActionType.DOWN;
-                   
+                    m_OnSwipeStartPos = pos;
                 }
+                m_swipeType = SwipeActionType.LEFT;
+                m_LastSwipeDirectionPos = pos;
             }
         }
         private void TapStarted(InputAction.CallbackContext context)
         {
             m_BeginClickCheck = false;
-            m_FingerDownPosition = m_Action.SimpleTouch.Position.ReadValue<Vector2>();
+            m_LastSwipeDirectionPos = m_OnSwipeStartPos = m_FingerDownPosition = m_Action.SimpleTouch.Position.ReadValue<Vector2>();
 
         }
         private void TapPerformed(InputAction.CallbackContext context)
@@ -302,7 +273,6 @@ namespace RayNeo
             }
             else if (m_PerformedTapCounts == 3)
             {
-                Debug.Log(TAG+ "FireTap() OnTripleTap?.Invoke();");
                 OnTripleTap?.Invoke();
             }
             else
@@ -320,8 +290,6 @@ namespace RayNeo
         NONE,
         LEFT,
         RIGHT,
-        UP,
-        DOWN,
     }
 
 }

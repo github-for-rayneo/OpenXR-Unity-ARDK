@@ -2,6 +2,7 @@
 using com.rayneo.xr.extensions;
 using FfalconXR;
 using System;
+using System.Runtime.InteropServices;
 using UnityEngine;
 namespace RayNeo.API
 {
@@ -210,10 +211,7 @@ namespace RayNeo.API
             float skew = 0f;
             var projectM = PerspectiveOffCenter(fx, fy, cx, cy, skew, camera.nearClipPlane, camera.farClipPlane);
             camera.projectionMatrix = projectM;
-
-
         }
-
         private static Matrix4x4 PerspectiveOffCenter(float fx, float fy, float cx, float cy, float skew, float near, float far)
         {
             float width = ShareCamera.CameraWidth;

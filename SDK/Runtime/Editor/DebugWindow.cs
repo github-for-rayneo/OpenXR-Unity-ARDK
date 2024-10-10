@@ -91,11 +91,6 @@ namespace RayNeo.Editor
 
         private void Update()
         {
-            if (Input.GetKeyDown(KeyCode.LeftControl))
-            {
-                onCtrl = !onCtrl;
-            }
-
             if (!onCtrl)
             {
                 return;

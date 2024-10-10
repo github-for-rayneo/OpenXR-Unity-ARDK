@@ -11,11 +11,6 @@ public class ResetHeadTrack : MonoBehaviour
     {
 
         SimpleTouch.Instance.OnDoubleTap.AddListener(OnReset);
-        OnReset();
-        /*SimpleTouchForLite.Instance.OnDoubleTap.AddListener(() =>
-        {
-            OnReset();
-        });*/
         //m_action.Touch.SimpleTap.started += OnSimpleTapEvent;
         //m_action.Touch.SimpleTap.performed += OnSimpleTapEvent;
         //m_action.Touch.SimpleTap.canceled += OnSimpleTapEvent;
@@ -24,10 +19,10 @@ public class ResetHeadTrack : MonoBehaviour
 
     private void OnDestroy()
     {
-        //if (SimpleTouch.SingletonExist)
-        //{
-        //    SimpleTouch.Instance.OnDoubleTap.RemoveListener(OnReset);
-        //}
+        if (SimpleTouch.SingletonExist)
+        {
+            SimpleTouch.Instance.OnDoubleTap.RemoveListener(OnReset);
+        }
 
 
     }
